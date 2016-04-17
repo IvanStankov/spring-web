@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="default" template="/pages/common/default.jsp" />
+    <definition name="movies" extends="default">
+        <put-attribute name="body" value="/pages/movies.jsp"/>
+    </definition>
+    <definition name="create-movie" extends="default">
+        <put-attribute name="body" value="/pages/create-movie.jsp" />
+    </definition>
+    <definition name="movie" extends="default">
+        <put-attribute name="body" value="/pages/movie.jsp" />
+    </definition>
+    <definition name="create-booking" extends="default">
+        <put-attribute name="body" value="/pages/create-booking.jsp" />
+    </definition>
+    <definition name="create-time-sheet" extends="default">
+        <put-attribute name="body" value="/pages/create-time-sheet.jsp" />
+    </definition>
+    <definition name="error" extends="default">
+        <put-attribute name="body" value="/pages/common/error.jsp" />
+    </definition>
+</tiles-definitions>
