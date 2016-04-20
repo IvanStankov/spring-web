@@ -22,4 +22,7 @@
     <definition name="error" extends="default">
         <put-attribute name="body" value="/pages/common/error.jsp" />
     </definition>
+    <definition name="headers" extends="default">
+        <put-attribute name="body" value="/pages/headers.jsp" />
+    </definition>
 </tiles-definitions>

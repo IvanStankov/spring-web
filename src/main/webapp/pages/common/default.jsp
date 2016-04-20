@@ -25,6 +25,7 @@
                    <li><a href="${root}">Time sheet</a></li>
                    <li><a href="${root}/create-movie">Create movie</a></li>
                    <li><a href="${root}/create-time-sheet">Create time sheet</a></li>
+                   <li><a href="${root}/headers">Headers</a></li>
                  </ul>
              </div>
          </div>

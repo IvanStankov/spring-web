@@ -6,7 +6,9 @@ import com.ivan.jmp.springweb.repository.MovieRepository;
 import com.ivan.jmp.springweb.repository.MovieSessionRepository;
 import com.ivan.jmp.springweb.repository.MovieTimeSheetRepository;
 import com.ivan.jmp.springweb.service.MovieTimeSheetService;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,7 +21,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class MovieTimeSheetServiceImpl implements MovieTimeSheetService {
+public class MovieTimeSheetServiceImpl implements MovieTimeSheetService, InitializingBean {
 
     @Autowired
     private MovieTimeSheetRepository movieTimeSheetRepository;
@@ -34,8 +36,14 @@ public class MovieTimeSheetServiceImpl implements MovieTimeSheetService {
     }
 
     @Override
+    @Async
     public void createTimeSheet(Long movieId, BigDecimal price, LocalDateTime startTime) {
         movieTimeSheetRepository.save(new MovieTimeSheet(movieRepository.getOne(movieId), startTime, price));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            // do nothing
+        }
     }
 
     @Override
@@ -52,5 +60,10 @@ public class MovieTimeSheetServiceImpl implements MovieTimeSheetService {
             MovieSession movieSession = movieSessionRepository.findByMovieTimeSheetIdAndSpot(timeSheetId, num);
             timeSheet.getMovieSessionList().remove(movieSession);
         }
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("The bean movieTimeSheetService has been created");
     }
 }

@@ -38,4 +38,22 @@ $(function() {
         }
     });
 
+    function sendHeaderRequest(colorHeader) {
+        $.ajax({
+            url: "/spring-web-1.0-SNAPSHOT/header-color",
+            headers: {
+                color: colorHeader
+            }
+        }).done(function(data) {
+            $("#circle").addClass(data);
+        });
+    }
+
+    $("#green").click(function() {
+        sendHeaderRequest("green");
+    });
+    $("#red").click(function() {
+        sendHeaderRequest("red");
+    });
+
 });

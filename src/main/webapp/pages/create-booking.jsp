@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="jmp" uri="http://com.ivan.jmp/jsp/tags" %>
 
-<div id="bookings">
+<h1>${timeSheet.movie.name} - ${timeSheet.startTime}</h1>
+<div id="bookings" class="distance-margin-top">
     <input type="hidden" value="${timeSheet.id}" id="timeSheetId"/>
     <c:forEach begin="0" end="3" varStatus="row">
         <div>

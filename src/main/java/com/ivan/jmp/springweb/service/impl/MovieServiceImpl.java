@@ -6,6 +6,7 @@ import com.ivan.jmp.springweb.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -43,5 +44,10 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<Movie> getMovies(String q) {
         return movieRepository.findByNameLike(q);
+    }
+
+    @PostConstruct
+    public void posetConstruct() {
+        System.out.println("The bean movieService has been created");
     }
 }

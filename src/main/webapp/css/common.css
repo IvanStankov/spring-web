@@ -48,3 +48,18 @@
 .spot-margin-right {
     margin-right: 10px;
 }
+
+.green-circle, .red-circle {
+    height: 200px;
+    width: 200px;
+    border: 1 px solid black;
+    border-radius: 100px;
+}
+
+.green-circle {
+    background-color: green;
+}
+
+.red-circle {
+    background-color: red;
+}
