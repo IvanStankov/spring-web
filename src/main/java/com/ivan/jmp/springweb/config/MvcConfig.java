@@ -16,7 +16,7 @@ import org.springframework.web.servlet.view.tiles3.TilesView;
  */
 @Configuration
 @EnableWebMvc
-@Import(DataConfig.class)
+@Import({DataConfig.class, SecurityConfig.class})
 @ComponentScan("com.ivan.jmp.springweb")
 public class MvcConfig extends WebMvcConfigurerAdapter {
     @Override

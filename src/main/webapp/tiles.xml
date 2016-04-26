@@ -3,26 +3,31 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition name="default" template="/pages/common/default.jsp" />
+    <definition name="login" template="/pages/common/template.jsp">
+        <put-attribute name="template" value="/pages/common/login.jsp"/>
+    </definition>
+    <definition name="default" template="/pages/common/template.jsp">
+        <put-attribute name="template" value="/pages/common/default.jsp"/>
+    </definition>
     <definition name="movies" extends="default">
-        <put-attribute name="body" value="/pages/movies.jsp"/>
+        <put-attribute name="body" value="/pages/movies.jsp" cascade="true"/>
     </definition>
     <definition name="create-movie" extends="default">
-        <put-attribute name="body" value="/pages/create-movie.jsp" />
+        <put-attribute name="body" value="/pages/create-movie.jsp" cascade="true"/>
     </definition>
     <definition name="movie" extends="default">
-        <put-attribute name="body" value="/pages/movie.jsp" />
+        <put-attribute name="body" value="/pages/movie.jsp" cascade="true"/>
     </definition>
     <definition name="create-booking" extends="default">
-        <put-attribute name="body" value="/pages/create-booking.jsp" />
+        <put-attribute name="body" value="/pages/create-booking.jsp" cascade="true"/>
     </definition>
     <definition name="create-time-sheet" extends="default">
-        <put-attribute name="body" value="/pages/create-time-sheet.jsp" />
+        <put-attribute name="body" value="/pages/create-time-sheet.jsp" cascade="true"/>
     </definition>
     <definition name="error" extends="default">
-        <put-attribute name="body" value="/pages/common/error.jsp" />
+        <put-attribute name="body" value="/pages/common/error.jsp" cascade="true"/>
     </definition>
     <definition name="headers" extends="default">
-        <put-attribute name="body" value="/pages/headers.jsp" />
+        <put-attribute name="body" value="/pages/headers.jsp" cascade="true"/>
     </definition>
 </tiles-definitions>

@@ -1,7 +1,12 @@
 <configuration>
 
-    <appender name="interceptors"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="interceptors" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>./../logs/interceptors.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <Pattern>
@@ -18,11 +23,19 @@
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
-
     </appender>
 
     <logger name="com.ivan.jmp.springweb.interceptor" level="debug"
             additivity="false">
         <appender-ref ref="interceptors" />
+        <appender-ref ref="STDOUT" />
     </logger>
+
+    <logger name="org" level="error" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
 </configuration>

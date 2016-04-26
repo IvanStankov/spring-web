@@ -63,3 +63,11 @@
 .red-circle {
     background-color: red;
 }
+
+.form-login {
+    margin-top: 10%;
+}
+
+.logout {
+    float: right !important;
+}
